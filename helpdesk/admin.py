@@ -4,8 +4,9 @@ from helpdesk.models import Ticket, Comment, Category
 
 
 class TicketAdmin(admin.ModelAdmin):
-    list_display = ('id' ,'title',)
+    list_display = ('id', 'user', 'title', 'created_at','status',)
     list_display_links = ('title',)
+    list_filter = ('user', 'status',)
    
 
 
