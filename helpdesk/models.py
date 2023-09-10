@@ -3,6 +3,8 @@ from django.contrib.auth.models import User
 from cadastro.models import Condominio
 from django.utils import timezone
 
+#from simple_history.models import HistoricalRecords
+
 
 
 class Ticket(models.Model):
@@ -41,7 +43,10 @@ class Ticket(models.Model):
         #default=1
     )
 
-    # def save(self, *args, **kwargs):
+    #history = HistoricalRecords()
+    
+    
+        # def save(self, *args, **kwargs):
     #     if not self.numero_chamado:
     #         # Obtém o número do último chamado, se existir
     #         ultimo_chamado = Ticket.objects.order_by('-numero_chamado').first()

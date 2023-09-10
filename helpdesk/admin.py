@@ -50,11 +50,7 @@ class TicketAdmin(admin.ModelAdmin):
 
     mark_as_closed.short_description = 'Marcar selecionados como Fechados'
 
-   
-    
-
-
-
+  
 admin.site.register(Ticket, TicketAdmin)
 admin.site.register(Comment)
 admin.site.register(Category)
