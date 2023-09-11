@@ -11,7 +11,7 @@ class TicketAdmin(admin.ModelAdmin):
     exclude = ('closed_at',) 
 
     list_display_links = ('numero_chamado', 'title',)
-    list_filter = ('user', 'status',)
+    list_filter = ('numero_chamado', 'user', 'status',)
     list_editable = ('user', 'status',)
     #search_fields = ('title', 'user__username', 'user__first_name', 'user__last_name', 'user__email', 'created_at',)
     # botão de ação para marcar como fechado ou aberto

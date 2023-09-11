@@ -19,7 +19,13 @@ class Ticket(models.Model):
     )
 
     created_at = models.DateTimeField(auto_now_add=True, verbose_name="Data de Abertura")
-    user = models.ForeignKey("auth.User", on_delete=models.CASCADE, verbose_name="Assinado Por")
+
+    user = models.ForeignKey(
+        "auth.User", 
+        on_delete=models.CASCADE, 
+        blank=True, null=True ,
+        verbose_name="Assinado Por"
+    )
         
     status = models.CharField(max_length=10, choices=(
         ("aberto", "Aberto"),
@@ -31,7 +37,7 @@ class Ticket(models.Model):
     
     # def save(self, *args, **kwargs):
     #     if self.status == "fechado" and not self.closed_at:
-    #         self.closed_at = timezone.now()  # Importe timezone se ainda não estiver importado
+    #         self.closed_at = timezone.now() 
     #     super().save(*args, **kwargs)
 
 
