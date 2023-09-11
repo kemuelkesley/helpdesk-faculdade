@@ -80,7 +80,7 @@ JAZZMIN_SETTINGS = {
     "show_sidebar": True,
 
     # Whether to aut expand the menu
-    "navigation_expanded": False,
+    "navigation_expanded": True,
 
     # Hide these apps when generating side menu e.g (auth)
     "hide_apps": [],
@@ -107,6 +107,17 @@ JAZZMIN_SETTINGS = {
         "auth": "fas fa-users-cog",
         "auth.user": "fas fa-user",
         "auth.Group": "fas fa-users",
+
+        # Abertura de chamados (icones)
+        "helpdesk": "fas fa-phone-alt",
+        "helpdesk.Ticket": "fas fa-ticket-alt",
+        "helpdesk.Category": "fas fa-list-alt",
+        "helpdesk.Comment": "fas fa-comment",
+
+        # Cadastros (icones)
+        "cadastro": "fas fa-address-card",
+        "cadastro.condominio": "fas fa-building",
+        "cadastro.equipamento": "fas fa-laptop",
     },
     # Icons that are used when one is not manually specified
     "default_icon_parents": "fas fa-chevron-circle-right",
