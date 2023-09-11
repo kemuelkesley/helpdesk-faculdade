@@ -2,10 +2,11 @@ from django.contrib import admin
 
 from helpdesk.models import Ticket, Comment, Category
 from django.utils import timezone
-
+from django.urls import reverse
+from django.utils.html import format_html
 
 class TicketAdmin(admin.ModelAdmin):
-    list_display = ('numero_chamado', 'title', 'user', 'created_at','status', 'closed_at',)
+    list_display = ('numero_chamado', 'title', 'user', 'formatted_created_at','status', 'formatted_closed_at',)
 
     # Exclua o campo 'closed_at' do formulário de edição
     exclude = ('closed_at',) 
@@ -24,24 +25,16 @@ class TicketAdmin(admin.ModelAdmin):
         }),
     )
 
-    # def mark_as_opened(self, request, queryset):
-    #     queryset.update(status='Aberto')
+    def formatted_created_at(self, obj):
+        return obj.created_at.strftime("%d de %b %Y")
 
-    # def mark_as_closed(self, request, queryset):
-    #     queryset.update(status='Fechado')
+    formatted_created_at.short_description = "Data de Abertura"
 
-    # def mark_as_progress(self, request, queryset):
-    #     queryset.update(status='Andamento')
+    def formatted_closed_at(self, obj):
+        return obj.closed_at.strftime("%d de %b %Y") if obj.closed_at else "-"
 
-    # def get_queryset(self, request):
-    #     qs = super(TicketAdmin, self).get_queryset(request)
-    #     if request.user.is_superuser:
-    #         return qs
-    #     return qs.filter(user=request.user)
-   
+    formatted_closed_at.short_description = "Data de Fechamento"
 
-    # mark_as_closed.short_description = 'Marcar como fechado'
-    # mark_as_opened.short_description = 'Marcar como aberto'
 
     def mark_as_closed(self, request, queryset):
         # Atualize o status para "fechado" e defina a data de fechamento para os chamados selecionados

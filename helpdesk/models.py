@@ -1,11 +1,14 @@
+import locale
 from django.db import models
 from django.contrib.auth.models import User
 from cadastro.models import Condominio
 from django.utils import timezone
 
+
 #from simple_history.models import HistoricalRecords
 
-
+#Configura o locale para português do Brasil
+locale.setlocale(locale.LC_TIME, 'pt_BR.utf8')
 
 class Ticket(models.Model):
    
@@ -17,7 +20,8 @@ class Ticket(models.Model):
         on_delete=models.CASCADE, 
         verbose_name="Condomínio",
     )
-
+   
+  
     created_at = models.DateTimeField(auto_now_add=True, verbose_name="Data de Abertura")
 
     user = models.ForeignKey(
@@ -34,12 +38,7 @@ class Ticket(models.Model):
     ), default="aberto", verbose_name="Status")
 
     closed_at = models.DateTimeField(null=True, blank=True, verbose_name="Data de Fechamento",)
-    
-    # def save(self, *args, **kwargs):
-    #     if self.status == "fechado" and not self.closed_at:
-    #         self.closed_at = timezone.now() 
-    #     super().save(*args, **kwargs)
-
+  
 
     numero_chamado = models.PositiveIntegerField(
         unique=True, 
@@ -49,18 +48,6 @@ class Ticket(models.Model):
         #default=1
     )
 
-    #history = HistoricalRecords()
-    
-    
-        # def save(self, *args, **kwargs):
-    #     if not self.numero_chamado:
-    #         # Obtém o número do último chamado, se existir
-    #         ultimo_chamado = Ticket.objects.order_by('-numero_chamado').first()
-    #         if ultimo_chamado:
-    #             self.numero_chamado = ultimo_chamado.numero_chamado + 1
-    #         else:
-    #             self.numero_chamado = 1
-    #     super().save(*args, **kwargs)
 
     def save(self, *args, **kwargs):
         if self.status == "fechado" and not self.closed_at:
@@ -84,12 +71,10 @@ class Ticket(models.Model):
 
     def get_condominio_numero_identificacao(self):
         return self.condominio.numero_identificacao
-
-    
+        
 
     def __str__(self):
         return self.title
-
 
 
     class Meta:
