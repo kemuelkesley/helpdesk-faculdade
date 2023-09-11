@@ -49,10 +49,11 @@ JAZZMIN_SETTINGS = {
         {"name": "Home",  "url": "admin:index", "permissions": ["auth.view_user"]},
 
         # external url that opens in a new window (Permissions can be added)
-        {"name": "Suporte", "url": "https://github.com/kemuelkesley", "new_window": True},
-
+        {"name": "Contato", "url": "https://github.com/kemuelkesley", "new_window": True},
+        
         # model admin to link to (Permissions checked against model)
-        {"model": "auth.User"},
+        #{"model": "auth.User"},
+        
 
         # App with dropdown menu to all its models pages (Permissions checked against models)
         {"app": ""},
@@ -64,8 +65,11 @@ JAZZMIN_SETTINGS = {
 
     # Additional links to include in the user menu on the top right ("app" url type is not allowed)
     "usermenu_links": [
-        {"name": "Support", "url": "https://github.com/farridav/django-jazzmin/issues", "new_window": True},
-        {"model": "auth.user"}
+        {"name": "Suporte", "url": "https://github.com/farridav/django-jazzmin/issues", "new_window": True},
+
+        #{"model": "auth.user"},
+        #{"name": "Sair", "url": "admin:logout"}
+        
     ],
 
     #############
@@ -112,7 +116,7 @@ JAZZMIN_SETTINGS = {
     # Related Modal #
     #################
     # Use modals instead of popups
-    "related_modal_active": True,
+    "related_modal_active": False,
 
     #############
     # UI Tweaks #
@@ -123,7 +127,8 @@ JAZZMIN_SETTINGS = {
     # Whether to link font from fonts.googleapis.com (use custom_css to supply font otherwise)
     "use_google_fonts_cdn": True,
     # Whether to show the UI customizer on the sidebar
-    "show_ui_builder": True,
+    # Esconder menu de customização
+    "show_ui_builder": False,
 
     ###############
     # Change view #
@@ -134,7 +139,7 @@ JAZZMIN_SETTINGS = {
     # - vertical_tabs
     # - collapsible
     # - carousel
-    "changeform_format": "horizontal_tabs",
+    "changeform_format": "single",
     # override change forms on a per modeladmin basis
     "changeform_format_overrides": {"auth.user": "collapsible", "auth.group": "vertical_tabs"},
     # Add a language dropdown into the admin

@@ -6,7 +6,7 @@ class Condominio(models.Model):
        
 
     numero_identificacao = models.PositiveIntegerField(
-        verbose_name="Número de Identificação",
+        verbose_name="Conta",
         help_text="Número de identificação do condomínio",
         unique=True,   # Garante que não haja repetição de valores
         blank=False    # Garante que o campo não pode ser vazio
