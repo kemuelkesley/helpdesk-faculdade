@@ -13,6 +13,14 @@ locale.setlocale(locale.LC_TIME, 'pt_BR.utf8')
 class Ticket(models.Model):
    
     title = models.CharField(max_length=50, verbose_name="Título")
+
+    category = models.ForeignKey(
+        "Category", 
+        on_delete=models.CASCADE, 
+        verbose_name="Categoria",
+        null=True
+    )
+
     description = models.TextField(verbose_name="Descrição")
     
     condominio = models.ForeignKey(
@@ -31,11 +39,24 @@ class Ticket(models.Model):
         verbose_name="Assinado Por"
     )
         
-    status = models.CharField(max_length=10, choices=(
-        ("aberto", "Aberto"),
-        ("andamento", "Andamento"),
-        ("fechado", "Fechado"),
-    ), default="aberto", verbose_name="Status")
+    # status = models.CharField(max_length=10, choices=(
+    #     ("aberto", "Aberto"),
+    #     ("andamento", "Andamento"),
+    #     ("fechado", "Fechado"),
+    # ), default="aberto", verbose_name="Status")
+
+    STATUS_CHOICES = (
+        ('aberto', 'Aberto'),
+        ('andamento', 'Andamento'),
+        ('fechado', 'Fechado'),
+    )
+
+    status = models.CharField(
+        max_length=10, 
+        choices=STATUS_CHOICES,
+        default='aberto',
+        verbose_name="Status"
+    )
 
     closed_at = models.DateTimeField(null=True, blank=True, verbose_name="Data de Fechamento",)
   
@@ -101,8 +122,21 @@ class Comment(models.Model):
 
 
 class Category(models.Model):
-    id = models.AutoField(primary_key=True)
-    name = models.CharField(max_length=50)
+    name = models.CharField(
+        max_length=50, 
+        verbose_name="Nome",
+        blank=False,
+        null=True,
+        help_text="Criar categoria para o chamado"
+    )
+
+    descricao = models.CharField(
+        max_length=50, 
+        verbose_name="Descrição",
+        blank=False,
+        null=True,
+        help_text="Criar descrição para a categoria"
+    )
 
     def __str__(self):
         return self.name
