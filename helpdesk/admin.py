@@ -57,6 +57,9 @@ class TicketAdmin(admin.ModelAdmin):
 
     view_closed_tickets.short_description = 'Visualizar Chamados Fechados'
 
+    
+        
+
 class ClosedTicketAdmin(admin.ModelAdmin):
     list_display = ('numero_chamado', 'title', 'user', 'created_at', 'status', 'closed_at')
 
