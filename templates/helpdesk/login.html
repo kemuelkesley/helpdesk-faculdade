@@ -28,7 +28,7 @@
               <div class="card-body p-4 p-lg-5 text-black">
 
                 <form action="" method="post">
-                      
+                    {% csrf_token %}
                     <div class="d-flex align-items-center mb-3 pb-1">
                       <i class="fa-regular fa-user fa-2x me-3" style="color: #ff6219;"></i>
                       <span class="h1 fw-bold mb-0">Login</span>
@@ -43,8 +43,8 @@
                     </div>
 
                     <div class="form-outline mb-4">
-                      <input type="password" id="nome_senha" class="form-control form-control-lg" placeholder="Infome sua senha" />
-                      <label class="form-label"  for="nome_senha">Senha</label>
+                      <input type="password" id="password" class="form-control form-control-lg" placeholder="Infome sua senha" />
+                      <label class="form-label"  for="password">Senha</label>
                       <i class="fa-solid fa-lock"></i>
                       <i class="fa-solid fa-eye-slash"></i>
                     </div>

@@ -36,7 +36,7 @@ class Ticket(models.Model):
         "auth.User", 
         on_delete=models.CASCADE, 
         blank=True, null=True ,
-        verbose_name="Assinado Por"
+        verbose_name = "Técnico"
     )
         
     # status = models.CharField(max_length=10, choices=(

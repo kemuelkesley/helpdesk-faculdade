@@ -42,6 +42,15 @@ class Equipamento(models.Model):
         
     )
 
+    condominio = models.ForeignKey(
+        Condominio,
+        on_delete=models.CASCADE,
+        verbose_name="Condomínio",
+        related_name="equipamentos",
+        null=True
+    )
+    
+
     data_instalacao = models.DateField(
         null=True, 
         blank=True,
