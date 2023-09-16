@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'cadastro.apps.CadastroConfig',
     'helpdesk.apps.HelpdeskConfig',
+    'usuarios.apps.UsuariosConfig',
 ]
 
 MIDDLEWARE = [
@@ -148,3 +149,4 @@ JAZZMIN_SETTINGS = JAZZMIN_SETTINGS
 
 JAZZMIN_UI_TWEAKS = JAZZMIN_UI_TWEAKS
 
+LOGOUT_REDIRECT_URL = 'login'

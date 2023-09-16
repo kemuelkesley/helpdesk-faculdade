@@ -1,0 +1,64 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <!--BOOTSTRAP-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.1/css/bootstrap.min.css" integrity="sha512-Z/def5z5u2aR89OuzYcxmDJ0Bnd5V1cKqBEbvLOiUNWdg9PQeXVvXLI90SE4QOHGlfLqUnDNVAYyZi8UwUTmWQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!--FONT AWESONE-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!--CSS-->
+    <link rel="stylesheet" href="{% static 'assets/css/style.css' %}">
+    
+</head>
+<body>
+    
+<section class="vh-100">
+  <div class="container py-5 h-100">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col col-xl-10">
+        <div class="card" style="border-radius: 1rem;">
+          <div class="row g-0">
+            <div class="col-md-6 col-lg-5 d-none d-md-block">
+              <img class="img-fluid" src="{% static 'assets/img/img_tela.jpg' %}" style="height: 610px;">
+            </div>
+            <div class="col-md-6 col-lg-7 d-flex align-items-center">
+              <div class="card-body p-4 p-lg-5 text-black">
+
+                    <form action="{% url 'login' %}" method="POST">
+                        {% csrf_token %}
+                        <div class="d-flex align-items-center mb-3 pb-1">
+                            <i class="fa-regular fa-user fa-2x me-3" style="color: #ff6219;"></i>
+                            <span class="h1 fw-bold mb-0">Login</span>
+                        </div>
+
+                        <h5 class="fw-normal mb-3 pb-3" style="letter-spacing: 1px;">Faça login em sua conta</h5>
+                        
+                        {% for field in form.visible_fields %}
+                        <div class="form-outline mb-4">
+                            <label class="form-label" for="{{form.id_for_label}}">{{field.label}}</label>
+                            {{ field }}
+                        </div>
+                        {% endfor %}
+
+
+                        <div class="pt-1 mb-4">
+                            <button type="submit">Login</button>
+                        </div>
+
+                        <a class="small text-muted" href="#!">Esqueceu sua senha?</a>
+                        <p class="mb-5 pb-lg-2" style="color: #393f81;">Não tem uma conta?<a href="#!"
+                            style="color: #393f81;">Registre-se aqui</a></p> 
+                    </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+</body>
+</html>
