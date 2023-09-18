@@ -2,13 +2,13 @@ from django import forms
 
 class LoginForms(forms.Form):
     nome_login = forms.CharField(
-        label='Nome de Login', 
+        label='Nome', 
         required=True,
         max_length=30,
         widget=forms.TextInput(
             attrs={            
                 "class" : "form-control",
-                "placeholder" : "Nome de Login"
+                "placeholder" : "Usuário"
             }
         )
     )
