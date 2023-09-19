@@ -5,6 +5,8 @@ from cadastro.models import Condominio
 from django.utils import timezone
 
 
+
+
 #from simple_history.models import HistoricalRecords
 
 #Configura o locale para português do Brasil

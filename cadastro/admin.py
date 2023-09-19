@@ -1,6 +1,11 @@
 from django.contrib import admin
 
 from cadastro.models import Condominio, Equipamento
+from import_export.admin import ImportExportModelAdmin
+from import_export.admin import ExportActionMixin
+
+
+
 
 
 class EquipamentoInline(admin.StackedInline):  # Use admin.StackedInline para uma exibição empilhada
@@ -8,11 +13,13 @@ class EquipamentoInline(admin.StackedInline):  # Use admin.StackedInline para um
     extra = 0  # Define quantos formulários em branco devem ser exibidos
 
 
-class CondominioAdmin(admin.ModelAdmin):
+class CondominioAdmin(ImportExportModelAdmin ,admin.ModelAdmin):
     list_display = ['numero_identificacao', 'nome', 'exibir_equipamentos']
     search_fields = ['numero_identificacao', 'nome']
     list_display_links = ['numero_identificacao', 'nome']
-   
+    
+    
+
     list_per_page = 10     
 
     def exibir_equipamentos(self, obj):
@@ -25,7 +32,7 @@ class CondominioAdmin(admin.ModelAdmin):
 
 
 
-class ListaEquipamento(admin.ModelAdmin):
+class ListaEquipamento(ImportExportModelAdmin ,admin.ModelAdmin):
     list_display = ('numero_serie','nome', 'data_instalacao', 'testado',)
     list_display_links = ('numero_serie', 'nome',)
     list_per_page = 10
