@@ -20,12 +20,14 @@ class Condominio(models.Model):
         #unique=True,   # Garante que não haja repetição de valores
     )
 
+
+
     #criado_em = models.DateTimeField(auto_now_add=True, editable=False, blank=True)
+    
 
     def __str__(self):
        return f'{self.numero_identificacao} - {self.nome}' 
        #return self.nome
-       
 
 
 class Equipamento(models.Model):

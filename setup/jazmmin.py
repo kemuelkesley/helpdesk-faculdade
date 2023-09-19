@@ -65,10 +65,11 @@ JAZZMIN_SETTINGS = {
 
     # Additional links to include in the user menu on the top right ("app" url type is not allowed)
     "usermenu_links": [
-        {"name": "Suporte", "url": "https://github.com/farridav/django-jazzmin/issues", "new_window": True},
+        #{"name": "Suporte", "url": "https://github.com/farridav/django-jazzmin/issues", "new_window": True},
 
         #{"model": "auth.user"},
-        #{"name": "Sair", "url": "admin:logout"}
+        #{"name": "Sair", "url": "admin:logout"},
+       
         
     ],
 
@@ -94,8 +95,8 @@ JAZZMIN_SETTINGS = {
 
     # Custom links to append to app groups, keyed on app name
     # "custom_links": {
-    #     "books": [{
-    #         "name": "Make Messages", 
+    #     "helpdesk": [{
+    #         "name": "Mensagens", 
     #         "url": "make_messages", 
     #         "icon": "fas fa-comments",
     #         "permissions": ["books.view_book"]
