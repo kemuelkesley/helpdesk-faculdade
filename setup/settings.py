@@ -43,8 +43,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'cadastro.apps.CadastroConfig',
     'helpdesk.apps.HelpdeskConfig',
+    'cadastro.apps.CadastroConfig',
     'usuarios.apps.UsuariosConfig',
 ]
 
@@ -149,4 +149,5 @@ JAZZMIN_SETTINGS = JAZZMIN_SETTINGS
 
 JAZZMIN_UI_TWEAKS = JAZZMIN_UI_TWEAKS
 
+# Alterar o caminho de redirecionamento do logout
 LOGOUT_REDIRECT_URL = 'login'
