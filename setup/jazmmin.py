@@ -92,6 +92,8 @@ JAZZMIN_SETTINGS = {
     # List of apps (and/or models) to base side menu ordering off of (does not need to contain all apps/models)
     # Ordenar lista de apps e modelos no painel de administração
     "order_with_respect_to": ["auth", "helpdesk", "cadastro" ],
+   
+
 
     # Custom links to append to app groups, keyed on app name
     # "custom_links": {
@@ -129,7 +131,7 @@ JAZZMIN_SETTINGS = {
     # Related Modal #
     #################
     # Use modals instead of popups
-    "related_modal_active": False,
+    "related_modal_active": True,
 
     #############
     # UI Tweaks #
@@ -154,7 +156,8 @@ JAZZMIN_SETTINGS = {
     # - carousel
     "changeform_format": "single",
     # override change forms on a per modeladmin basis
-    "changeform_format_overrides": {"auth.user": "collapsible", "auth.group": "vertical_tabs"},
+    "changeform_format_overrides": {"auth.user": "collapsible", "auth.group": "vertical_tabs",},
     # Add a language dropdown into the admin
     "language_chooser": False,
+
 }
