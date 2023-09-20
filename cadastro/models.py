@@ -41,14 +41,20 @@ class Equipamento(models.Model):
     nome = models.CharField(
         max_length=50,
         blank=False,
-        verbose_name="Nome do Equipamento",
+        verbose_name="Nome",
     )
 
     numero_serie = models.CharField(
         max_length=50,
         blank=False,
         verbose_name="Número de Série",
-        
+    )
+
+    descricao = models.CharField(
+        max_length=50,
+        null=True,
+        blank=True,
+        verbose_name="Descrição",
     )
 
     condominio = models.ForeignKey(
@@ -69,22 +75,19 @@ class Equipamento(models.Model):
     data_fim_garantia = models.DateField(
         null=True, 
         blank=True,
-        verbose_name='Data Fim de Garantia',
-        help_text='Exemplo de data: 01/01/2023',
+        verbose_name='Data Fim de Garantia',        
     )
     
     dia_recebimento = models.DateField(
         null=True, 
         blank=True,
-        verbose_name='Dia de Recebimento',
-        help_text='Exemplo de data: 01/01/2023',
+        verbose_name='Dia de Recebimento',       
     )
 
     data_instalacao = models.DateField(
         null=True, 
         blank=True,
-        verbose_name='Data de Instalação',
-        help_text='Exemplo de data: 01/01/2023',
+        verbose_name='Data de Instalação',       
     )
    
    
