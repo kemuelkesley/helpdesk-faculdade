@@ -5,9 +5,6 @@ from import_export.admin import ImportExportModelAdmin
 from import_export.admin import ExportActionMixin
 
 
-
-
-
 class EquipamentoInline(admin.StackedInline):  # Use admin.StackedInline para uma exibição empilhada
     model = Equipamento
     extra = 0  # Define quantos formulários em branco devem ser exibidos
