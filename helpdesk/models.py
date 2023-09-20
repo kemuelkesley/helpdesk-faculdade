@@ -5,6 +5,8 @@ from cadastro.models import Condominio
 from django.utils import timezone
 
 
+
+
 #from simple_history.models import HistoricalRecords
 
 #Configura o locale para português do Brasil
@@ -12,16 +14,16 @@ locale.setlocale(locale.LC_TIME, 'pt_BR.utf8')
 
 class Ticket(models.Model):
    
-    title = models.CharField(max_length=50, verbose_name="Título")
+    titulo = models.CharField(max_length=50, verbose_name="Título")
 
-    category = models.ForeignKey(
-        "Category", 
+    categoria = models.ForeignKey(
+        "Categoria", 
         on_delete=models.CASCADE, 
         verbose_name="Categoria",
         null=True
     )
 
-    description = models.TextField(verbose_name="Descrição")
+    descricao = models.TextField(verbose_name="Descrição")
     
     condominio = models.ForeignKey(
         Condominio, 
@@ -85,7 +87,7 @@ class Ticket(models.Model):
         super().save(*args, **kwargs)
 
     def __str__(self):
-        return self.title
+        return self.titulo
     
     def get_condominio_nome(self):
         return self.condominio.nome
@@ -95,7 +97,7 @@ class Ticket(models.Model):
         
 
     def __str__(self):
-        return self.title
+        return self.titulo
 
 
     class Meta:
@@ -104,15 +106,15 @@ class Ticket(models.Model):
         ordering = ["-created_at"]
 
 
-class Comment(models.Model):
+class Comentario(models.Model):
     id = models.AutoField(primary_key=True)
     ticket = models.ForeignKey(Ticket, on_delete=models.CASCADE)
-    comment = models.TextField()
+    comentario = models.TextField()
     created_at = models.DateTimeField(auto_now_add=True)
     user = models.ForeignKey("auth.User", on_delete=models.CASCADE)
 
     def __str__(self):
-        return self.comment
+        return self.comentario
 
     class Meta:
         verbose_name = "Comentário"
@@ -121,8 +123,8 @@ class Comment(models.Model):
 
 
 
-class Category(models.Model):
-    name = models.CharField(
+class Categoria(models.Model):
+    nome = models.CharField(
         max_length=50, 
         verbose_name="Nome",
         blank=False,
@@ -139,11 +141,11 @@ class Category(models.Model):
     )
 
     def __str__(self):
-        return self.name
+        return self.nome
     
     class Meta:
         verbose_name = "Categoria"
         verbose_name_plural = "Categorias"
-        ordering = ["name"]
+        ordering = ["nome"]
 
 

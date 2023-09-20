@@ -37,14 +37,16 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     'jazzmin',
+    'import_export',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'cadastro.apps.CadastroConfig',
     'helpdesk.apps.HelpdeskConfig',
+    'cadastro.apps.CadastroConfig',
+    'usuarios.apps.UsuariosConfig',
 ]
 
 MIDDLEWARE = [
@@ -148,3 +150,5 @@ JAZZMIN_SETTINGS = JAZZMIN_SETTINGS
 
 JAZZMIN_UI_TWEAKS = JAZZMIN_UI_TWEAKS
 
+# Alterar o caminho de redirecionamento do logout
+LOGOUT_REDIRECT_URL = 'login'

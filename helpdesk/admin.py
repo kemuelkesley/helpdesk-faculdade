@@ -1,34 +1,34 @@
 from django.contrib import admin
-from django.http import HttpResponseRedirect
+from django.http import HttpResponse, HttpResponseRedirect
 
-from helpdesk.models import Ticket, Comment, Category
+from helpdesk.models import Ticket, Comentario, Categoria
 from django.utils import timezone
 from django.urls import reverse
-from django.utils.html import format_html
 from django.utils.http import urlencode
 
+from import_export.admin import ImportExportModelAdmin
+from .models import Ticket
+
+# Register your models here.
 
 
 
-class TicketAdmin(admin.ModelAdmin):
-    list_display = ('numero_chamado', 'title', 'user', 'formatted_created_at','status', 'formatted_closed_at',)
-   
+class TicketAdmin(ImportExportModelAdmin ,admin.ModelAdmin):
+    list_display = ('numero_chamado', 'titulo', 'user', 'formatted_created_at','status', 'formatted_closed_at', )
     # Exclua o campo 'closed_at' do formulário de edição
     exclude = ('closed_at',) 
 
-    list_display_links = ('numero_chamado', 'title',)
+    list_display_links = ('numero_chamado', 'titulo',)
     list_filter = ('numero_chamado', 'user', 'status',)
     list_editable = ('user', 'status',)
-    #search_fields = ('title', 'user__username', 'user__first_name', 'user__last_name', 'user__email', 'created_at',)
-    # botão de ação para marcar como fechado ou aberto
-    actions = ['mark_as_closed', 'mark_as_opened', 'mark_as_progress', 'view_closed_tickets',]
+      
     readonly_fields = ('numero_chamado', 'created_at',)
 
     list_per_page = 10   
 
     fieldsets = (
         ('Dados do chamado', {
-            'fields': ('numero_chamado', 'condominio', 'user', 'category'  ,'title', 'description', 'status', 'created_at',)
+            'fields': ('numero_chamado', 'condominio', 'user', 'categoria'  ,'titulo', 'descricao', 'status', 'created_at',)
         }),
     )
         
@@ -57,16 +57,16 @@ class TicketAdmin(admin.ModelAdmin):
 
     view_closed_tickets.short_description = 'Visualizar Chamados Fechados'
 
-    
-        
-
+   
 class ClosedTicketAdmin(admin.ModelAdmin):
-    list_display = ('numero_chamado', 'title', 'user', 'created_at', 'status', 'closed_at')
+    list_display = ('numero_chamado', 'titulo', 'user', 'created_at', 'status', 'closed_at')
 
     list_filter = ('status',)  # Filtrar apenas chamados fechados
 
 
+
+
 admin.site.register(Ticket, TicketAdmin)
-admin.site.register(Comment)
-admin.site.register(Category)
+admin.site.register(Comentario)
+admin.site.register(Categoria)
 
