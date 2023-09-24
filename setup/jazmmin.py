@@ -115,8 +115,8 @@ JAZZMIN_SETTINGS = {
         # Abertura de chamados (icones)
         "helpdesk": "fas fa-phone-alt",
         "helpdesk.Ticket": "fas fa-ticket-alt",
-        "helpdesk.Category": "fas fa-list-alt",
-        "helpdesk.Comment": "fas fa-comment",
+        "helpdesk.Categoria": "fas fa-list-alt",
+        "helpdesk.Comentario": "fas fa-comment",
 
         # Cadastros (icones)
         "cadastro": "fas fa-address-card",
