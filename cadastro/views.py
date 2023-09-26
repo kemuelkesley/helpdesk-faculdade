@@ -2,9 +2,11 @@ import csv
 from django.http import HttpResponse
 from django.shortcuts import render
 from .models import Equipamento
+from django.contrib.auth.decorators import login_required
 
 
 
+@login_required
 def equipamentos(request):
 
     equipamentos = Equipamento.objects.all()
@@ -14,6 +16,7 @@ def equipamentos(request):
 
 
 
+@login_required
 def exportar_csv(request):
     response = HttpResponse(content_type='text/csv')
     response['Content-Disposition'] = 'attachment; filename="equipamentos.csv"'
