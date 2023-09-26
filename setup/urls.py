@@ -20,7 +20,9 @@ from django.urls import path, include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include("cadastro.urls")),
     path('', include("usuarios.urls")),
-   
+    path('', include("cadastro.urls")),
 ]
+
+
+handler404 = 'cadastro.views.custom_404'

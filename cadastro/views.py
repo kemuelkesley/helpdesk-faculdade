@@ -40,3 +40,9 @@ def exportar_csv(request):
         ])
 
     return response
+
+
+
+def custom_404(request, exception):
+    return render(request, 'error/404.html', {})
+
