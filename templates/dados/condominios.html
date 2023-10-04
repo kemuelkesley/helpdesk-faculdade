@@ -9,13 +9,13 @@
       <!-- CSS   -->
      <link rel="stylesheet" type="text/css" href="{% static 'assets/css/tabela.css' %}">
 
-    <title>Dados Equipamentos</title>
+    <title>Dados Condominios</title>
 </head>
 <body>
     
     <section class="container">
         <div>
-            <h3 class="text-center mb-5">Equipamentos</h3>
+            <h3 class="text-center mb-5">Condominios</h3>
            <div class="mb-3">
               <a href="{% url 'admin:index' %}" style="font-size: 16px;"><Strong>Home</Strong></a>
            </div>
@@ -23,7 +23,7 @@
                 <!-- <span class="text">Baixar CSV</span> -->
                     <button class="button">    
                         <span>
-                            <a href="{% url 'exportar_equipamentos_csv' %}">Baixar CSV</a>
+                            <a href="{% url 'exportar_condominio_csv' %}">Baixar CSV</a>
                         </span>
                     </button>
             </div>
@@ -33,23 +33,19 @@
             
             <thead class="table-primary">
               <tr>
-                <th scope="col">Nome</th>
-                <th scope="col">N Série</th>
-                <th scope="col">Descrição</th>
-                <th scope="col">Condomínio</th>
+                <th scope="col">Identificação</th>
+                <th scope="col">Condominio</th>                
               </tr>
             </thead>
             <tbody>
-                {% for equipamento in equipamentos %}
+              {% for condominio in condominios %}
               <tr>
-                <th>{{ equipamento.nome }}</th>
-                <td>{{ equipamento.numero_serie }}</td>
-                <td>{{ equipamento.descricao }}</td>
-                <td>{{ equipamento.condominio }}</td>
+                <th>{{ condominio.numero_identificacao }}</th>
+                <td>{{ condominio.nome }}</td>
               </tr>              
               {% endfor %}
             </tbody>
-          </table>
+        </table>
     </section>
    
 </body>

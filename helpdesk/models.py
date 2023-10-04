@@ -71,7 +71,6 @@ class Ticket(models.Model):
         #default=1
     )
 
-
     def save(self, *args, **kwargs):
         if self.status == "fechado" and not self.closed_at:
             self.closed_at = timezone.now()

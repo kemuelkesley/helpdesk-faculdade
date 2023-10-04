@@ -65,13 +65,18 @@ JAZZMIN_SETTINGS = {
 
     # Additional links to include in the user menu on the top right ("app" url type is not allowed)
     "usermenu_links": [
-        {
-            
+        {            
             "name": "Baixar Equipamentos", 
             "url": "equipamentos", 
             "new_window": True
         },
 
+        {
+            "name" : "Baixar Condominios",
+            "url" : "condominios",
+            "new_window" : True
+        },
+        
         #{"model": "auth.user"},
         #{"name": "Sair", "url": "admin:logout"},
        
