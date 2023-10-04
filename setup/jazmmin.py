@@ -65,7 +65,12 @@ JAZZMIN_SETTINGS = {
 
     # Additional links to include in the user menu on the top right ("app" url type is not allowed)
     "usermenu_links": [
-        #{"name": "Suporte", "url": "https://github.com/farridav/django-jazzmin/issues", "new_window": True},
+        {
+            
+            "name": "Baixar Equipamentos", 
+            "url": "equipamentos", 
+            "new_window": True
+        },
 
         #{"model": "auth.user"},
         #{"name": "Sair", "url": "admin:logout"},
