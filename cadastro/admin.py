@@ -4,7 +4,7 @@ from import_export.admin import ImportExportModelAdmin
 
 
 # Use admin.StackedInline para uma exibição empilhada
-class EquipamentoInline(admin.StackedInline):
+class EquipamentoInline(admin.TabularInline):
     model = Equipamento
     extra = 0  
 
