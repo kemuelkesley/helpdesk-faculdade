@@ -65,31 +65,13 @@ class Equipamento(models.Model):
         null=True
     )
     
-    data_compra = models.DateField(
-        null=True, 
-        blank=True,
-        verbose_name='Data de Compra',
-        help_text='Exemplo de data: 01/01/2023',
-    )
-   
-    data_fim_garantia = models.DateField(
-        null=True, 
-        blank=True,
-        verbose_name='Data Fim de Garantia',        
-    )
-    
-    dia_recebimento = models.DateField(
-        null=True, 
-        blank=True,
-        verbose_name='Dia de Recebimento',       
-    )
-
     data_instalacao = models.DateField(
         null=True, 
         blank=True,
-        verbose_name='Data de Instalação',       
+        verbose_name='Data de Instalação',
+        help_text='Exemplo de data: 01/01/2023',
     )
-   
+
    
     testado = models.BooleanField(
         default=False,

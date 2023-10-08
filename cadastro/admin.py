@@ -6,15 +6,14 @@ from import_export.admin import ImportExportModelAdmin
 # Use admin.StackedInline para uma exibição empilhada
 class EquipamentoInline(admin.TabularInline):
     model = Equipamento
+    exclude = ['descricao']
     extra = 0  
 
 
 class CondominioAdmin(ImportExportModelAdmin ,admin.ModelAdmin):
     list_display = ['numero_identificacao', 'nome', 'exibir_equipamentos']
     search_fields = ['numero_identificacao', 'nome']
-    list_display_links = ['numero_identificacao', 'nome']
-    
-    
+    list_display_links = ['numero_identificacao', 'nome']   
 
     list_per_page = 10     
 
