@@ -50,13 +50,6 @@ class Equipamento(models.Model):
         verbose_name="Número de Série",
     )
 
-    descricao = models.CharField(
-        max_length=50,
-        null=True,
-        blank=True,
-        verbose_name="Descrição",
-    )
-
     condominio = models.ForeignKey(
         Condominio,
         on_delete=models.CASCADE,

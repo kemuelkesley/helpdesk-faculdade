@@ -80,7 +80,7 @@ TEMPLATES = [
 WSGI_APPLICATION = 'setup.wsgi.application'
 
 
-# Database
+# Database Rodar com SQLite Server
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
 # DATABASES = {
@@ -90,7 +90,7 @@ WSGI_APPLICATION = 'setup.wsgi.application'
 #     }
 # }
 
-
+# Rodar com SQL Server da microsoft
 DATABASES = {
     'default': {
         'ENGINE': 'mssql',
