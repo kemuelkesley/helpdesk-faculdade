@@ -37,6 +37,39 @@ class Condominio(models.Model):
        #return self.nome
 
 
+class CategoriaEquipamento(models.Model):
+
+    codigo = models.CharField(
+        max_length=10, 
+        unique=True,
+        blank=False, 
+        verbose_name="Código da Categoria"
+    )
+
+
+    nome = models.CharField(
+        max_length=50, 
+        blank=False, 
+        verbose_name="Nome da Categoria"
+    )
+
+
+    criado_em = models.DateTimeField(
+        auto_now_add=True, 
+        editable=False, 
+        verbose_name="Criação Em"
+    )
+
+
+    def __str__(self):
+        return self.nome
+    
+
+    class Meta:
+        verbose_name = "Categoria equipamentos"
+        verbose_name_plural = "Categoria de Equipamentos"
+        ordering = ["-criado_em"]
+
 class Equipamento(models.Model):
     nome = models.CharField(
         max_length=50,
@@ -55,6 +88,15 @@ class Equipamento(models.Model):
         on_delete=models.CASCADE,
         verbose_name="Condomínio",
         related_name="equipamentos",
+        null=True
+    )
+
+
+    categoria = models.ForeignKey(
+        CategoriaEquipamento, 
+        on_delete=models.CASCADE, 
+        related_name="equipamentos", 
+        verbose_name="Categoria",
         null=True
     )
     

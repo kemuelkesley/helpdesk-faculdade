@@ -41,11 +41,6 @@ class Ticket(models.Model):
         verbose_name = "Técnico"
     )
         
-    # status = models.CharField(max_length=10, choices=(
-    #     ("aberto", "Aberto"),
-    #     ("andamento", "Andamento"),
-    #     ("fechado", "Fechado"),
-    # ), default="aberto", verbose_name="Status")
 
     STATUS_CHOICES = (
         ('aberto', 'Aberto'),

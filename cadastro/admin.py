@@ -1,5 +1,5 @@
 from django.contrib import admin
-from cadastro.models import Condominio, Equipamento
+from cadastro.models import Condominio, Equipamento, CategoriaEquipamento
 from import_export.admin import ImportExportModelAdmin
 
 
@@ -35,6 +35,6 @@ class ListaEquipamento(ImportExportModelAdmin ,admin.ModelAdmin):
     list_per_page = 15
 
 
-
+admin.site.register(CategoriaEquipamento)
 admin.site.register(Condominio, CondominioAdmin)
 admin.site.register(Equipamento, ListaEquipamento)
