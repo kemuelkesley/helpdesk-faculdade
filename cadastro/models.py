@@ -67,7 +67,7 @@ class CategoriaEquipamento(models.Model):
 
     class Meta:
         verbose_name = "Categoria equipamentos"
-        verbose_name_plural = "Categoria de Equipamentos"
+        verbose_name_plural = "Categoria"
         ordering = ["-criado_em"]
 
 class Equipamento(models.Model):

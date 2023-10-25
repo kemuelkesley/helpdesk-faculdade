@@ -38,8 +38,7 @@
             <thead class="table-primary">
               <tr>
                 <th scope="col">Nome</th>
-                <th scope="col">N Série</th>
-                <th scope="col">Descrição</th>
+                <th scope="col">N Série</th>                
                 <th scope="col">Condomínio</th>
               </tr>
             </thead>
@@ -47,8 +46,7 @@
                 {% for equipamento in equipamentos %}
               <tr>
                 <td>{{ equipamento.nome }}</td>
-                <td>{{ equipamento.numero_serie }}</td>
-                <td>{{ equipamento.descricao }}</td>
+                <td>{{ equipamento.numero_serie }}</td>                
                 <td>{{ equipamento.condominio }}</td>
               </tr>              
               {% endfor %}
