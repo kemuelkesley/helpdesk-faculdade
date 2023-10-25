@@ -14,11 +14,11 @@ from .models import Ticket
 
 
 class TicketAdmin(ImportExportModelAdmin ,admin.ModelAdmin):
-    list_display = ('numero_chamado', 'titulo', 'user', 'formatted_created_at','status', 'formatted_closed_at', )
+    list_display = ('numero_chamado', 'titulo', 'condominio' , 'user', 'status', 'created_at', 'closed_at',)
     # Exclua o campo 'closed_at' do formulário de edição
     exclude = ('closed_at',) 
 
-    list_display_links = ('numero_chamado', 'titulo',)
+    list_display_links = ('numero_chamado', 'titulo', 'condominio')
     list_filter = ('numero_chamado', 'user', 'status',)
     list_editable = ('user', 'status',)
       
@@ -33,15 +33,15 @@ class TicketAdmin(ImportExportModelAdmin ,admin.ModelAdmin):
     )
         
 
-    def formatted_created_at(self, obj):
-        return obj.created_at.strftime("%d de %b %Y")
+    # def formatted_created_at(self, obj):
+    #     return obj.created_at.strftime("%d de %b %Y as %Hh%M")
 
-    formatted_created_at.short_description = "Data de Abertura"
+    # formatted_created_at.short_description = "Data de Abertura"
 
-    def formatted_closed_at(self, obj):
-        return obj.closed_at.strftime("%d de %b %Y") if obj.closed_at else "-"
+    # def formatted_closed_at(self, obj):
+    #     return obj.closed_at.strftime("%d de %b %Y as %Hh%M") if obj.closed_at else "-"
 
-    formatted_closed_at.short_description = "Data de Fechamento"
+    # formatted_closed_at.short_description = "Data de Fechamento"
 
 
     def mark_as_closed(self, request, queryset):

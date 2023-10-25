@@ -1,5 +1,3 @@
-
-
 JAZZMIN_SETTINGS = {
     # title of the window (Will default to current_admin_site.site_title if absent or None)
     "site_title": "Chamados",
@@ -130,6 +128,7 @@ JAZZMIN_SETTINGS = {
 
         # Cadastros (icones)
         "cadastro": "fas fa-address-card",
+        "cadastro.CategoriaEquipamento": "fas fa-list-alt",
         "cadastro.condominio": "fas fa-building",
         "cadastro.equipamento": "fas fa-laptop",
     },
