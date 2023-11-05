@@ -22,7 +22,7 @@ class TicketAdmin(ImportExportModelAdmin ,admin.ModelAdmin):
     list_filter = ('numero_chamado', 'user', 'status',)
     list_editable = ('user', 'status',)
       
-    readonly_fields = ('numero_chamado', 'created_at',)
+    readonly_fields = ('numero_chamado', 'created_at', 'status',)
 
     list_per_page = 10   
 
@@ -51,13 +51,20 @@ class TicketAdmin(ImportExportModelAdmin ,admin.ModelAdmin):
 
 
 class ComentarioAdmin(admin.ModelAdmin):
-    list_display = ('id','ticket', 'user', 'created_at', 'fechamento',)
-    list_filter = ('id','ticket', 'user', 'fechamento', 'comentario',)
+    list_display = ('get_numero_chamado','ticket', 'user', 'created_at',)
+    list_filter = ('id','ticket', 'user',  'comentario',)
     list_display_links = ('ticket', 'user', 'created_at',)
-    #readonly_fields = ('ticket', 'user', 'created_at',)
+    readonly_fields = ('get_numero_chamado', 'categoria', 'status')
 
    
-   
+    def get_numero_chamado(self, obj):
+        return obj.ticket.numero_chamado
+    
+    get_numero_chamado.short_description = 'Número do Chamado'
+    # Deixa o link clicavel
+    get_numero_chamado.admin_order_field = 'ticket__numero_chamado'
+
+ 
 
 
 

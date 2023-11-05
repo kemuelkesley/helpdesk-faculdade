@@ -60,15 +60,18 @@ class CategoriaEquipamento(models.Model):
         verbose_name="Criação Em"
     )
 
+  
 
     def __str__(self):
         return self.nome
     
 
     class Meta:
-        verbose_name = "Categoria equipamentos"
+        verbose_name = "Categoria de equipamentos"
         verbose_name_plural = "Categoria"
         ordering = ["-criado_em"]
+
+
 
 class Equipamento(models.Model):
     nome = models.CharField(
