@@ -43,9 +43,9 @@ class Ticket(models.Model):
         
 
     STATUS_CHOICES = (
-        ('aberto', 'Aberto'),
-        ('andamento', 'Andamento'),
-        ('fechado', 'Fechado'),
+        ('aberto', 'aberto'),
+        ('andamento', 'andamento'),
+        ('fechado', 'fechado'),
     )
 
     status = models.CharField(
@@ -87,7 +87,23 @@ class Ticket(models.Model):
         return self.condominio.nome
 
     def get_condominio_numero_identificacao(self):
-        return self.condominio.numero_identificacao
+        return self.condominio.numero_identificacao   
+    
+   
+   
+    def fechar_ticket(self, comentario):
+        self.status = "fechado"
+        self.closed_at = timezone.now()
+        self.comentario_fechamento = comentario
+        self.save()
+
+
+        Comentario.objects.create(
+                ticket=self,
+                comentario=comentario,
+                user=self.user,
+                fechamento=True  # Indicando que é um comentário de fechamento
+            )
         
 
     def __str__(self):
@@ -103,9 +119,10 @@ class Ticket(models.Model):
 class Comentario(models.Model):
     id = models.AutoField(primary_key=True)
     ticket = models.ForeignKey(Ticket, on_delete=models.CASCADE)
-    comentario = models.TextField()
+    comentario = models.TextField(max_length=200)
     created_at = models.DateTimeField(auto_now_add=True)
-    user = models.ForeignKey("auth.User", on_delete=models.CASCADE)
+    user = models.ForeignKey("auth.User", on_delete=models.CASCADE, verbose_name="Técnico")
+    fechamento = models.BooleanField(default=False, verbose_name="Fechado")
 
     def __str__(self):
         return self.comentario

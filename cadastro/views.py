@@ -66,7 +66,7 @@ def exportar_csv(request, modelo, campos, nome_arquivo):
 
 
 def exportar_equipamentos_csv(request):
-    campos = ['nome', 'numero_serie', 'descricao', 'condominio']
+    campos = ['nome', 'numero_serie', 'condominio']
     nome_arquivo = 'equipamentos'
     return exportar_csv(request, Equipamento, campos, nome_arquivo)
 

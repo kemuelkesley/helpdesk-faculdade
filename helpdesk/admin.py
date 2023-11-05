@@ -28,20 +28,10 @@ class TicketAdmin(ImportExportModelAdmin ,admin.ModelAdmin):
 
     fieldsets = (
         ('Dados do chamado', {
-            'fields': ('numero_chamado', 'condominio', 'user', 'categoria'  ,'titulo', 'descricao', 'status', 'created_at',)
+            'fields': ('numero_chamado', 'condominio', 'user', 'categoria'  ,'titulo', 'descricao', 'status', 'created_at', )
         }),
     )
         
-
-    # def formatted_created_at(self, obj):
-    #     return obj.created_at.strftime("%d de %b %Y as %Hh%M")
-
-    # formatted_created_at.short_description = "Data de Abertura"
-
-    # def formatted_closed_at(self, obj):
-    #     return obj.closed_at.strftime("%d de %b %Y as %Hh%M") if obj.closed_at else "-"
-
-    # formatted_closed_at.short_description = "Data de Fechamento"
 
 
     def mark_as_closed(self, request, queryset):
@@ -58,15 +48,27 @@ class TicketAdmin(ImportExportModelAdmin ,admin.ModelAdmin):
     view_closed_tickets.short_description = 'Visualizar Chamados Fechados'
 
    
-class ClosedTicketAdmin(admin.ModelAdmin):
-    list_display = ('numero_chamado', 'titulo', 'user', 'created_at', 'status', 'closed_at')
-
-    list_filter = ('status',)  # Filtrar apenas chamados fechados
 
 
+class ComentarioAdmin(admin.ModelAdmin):
+    list_display = ('id','ticket', 'user', 'created_at', 'fechamento',)
+    list_filter = ('id','ticket', 'user', 'fechamento', 'comentario',)
+    list_display_links = ('ticket', 'user', 'created_at',)
+    #readonly_fields = ('ticket', 'user', 'created_at',)
+
+   
+   
+
+
+
+    # def has_add_permission(self, request):
+    #     return False
+
+    # def has_change_permission(self, request, obj=None):
+    #     return False
 
 
 admin.site.register(Ticket, TicketAdmin)
-admin.site.register(Comentario)
+admin.site.register(Comentario, ComentarioAdmin)
 admin.site.register(Categoria)
 
