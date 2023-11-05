@@ -64,18 +64,17 @@ class ComentarioAdmin(admin.ModelAdmin):
     # Deixa o link clicavel
     get_numero_chamado.admin_order_field = 'ticket__numero_chamado'
 
+
  
+class CategoriaAdmin(admin.ModelAdmin):
+    list_display = ('nome', 'descricao',)
+    list_filter = ('nome', 'descricao',)
+    list_display_links = ('nome', 'descricao',)
+   
 
-
-
-    # def has_add_permission(self, request):
-    #     return False
-
-    # def has_change_permission(self, request, obj=None):
-    #     return False
 
 
 admin.site.register(Ticket, TicketAdmin)
 admin.site.register(Comentario, ComentarioAdmin)
-admin.site.register(Categoria)
+admin.site.register(Categoria, CategoriaAdmin)
 

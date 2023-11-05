@@ -7,8 +7,6 @@ from django.utils import timezone
 
 
 
-#from simple_history.models import HistoricalRecords
-
 #Configura o locale para português do Brasil
 locale.setlocale(locale.LC_TIME, 'pt_BR.utf8')
 
@@ -66,6 +64,8 @@ class Ticket(models.Model):
         #default=1
     )
 
+  
+
     def save(self, *args, **kwargs):
         if self.status == "fechado" and not self.closed_at:
             self.closed_at = timezone.now()
@@ -88,29 +88,7 @@ class Ticket(models.Model):
 
     def get_condominio_numero_identificacao(self):
         return self.condominio.numero_identificacao   
-    
-    # def abrir_chamado(self, comentario_abertura):
-    #     Comentario.objects.create(
-    #         ticket=self,
-    #         comentario=comentario_abertura,
-    #         user=self.user
-    # )
-
-    # def fechar_chamado(self, comentario_fechamento):
-    #     self.status = "fechado"
-    #     self.closed_at = timezone.now()
-    #     self.save()
-
-    #     Comentario.objects.create(
-    #         ticket=self,
-    #         comentario=comentario_fechamento,
-    #         user=self.user,
-    #         fechamento=True
-    #     )
-   
-    
-    #history = HistoricalRecords()
-
+ 
 
     def __str__(self):
         return self.titulo
@@ -128,9 +106,7 @@ class Comentario(models.Model):
     comentario = models.TextField(max_length=200)
     created_at = models.DateTimeField(auto_now_add=True)
     user = models.ForeignKey("auth.User", on_delete=models.CASCADE, verbose_name="Técnico")
-   
-
-    
+       
 
     def categoria(self):
         return self.ticket.categoria
