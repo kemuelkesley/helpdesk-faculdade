@@ -9,18 +9,27 @@ from django.core.paginator import Paginator
 @login_required
 def equipamentos(request):
     equipamentos = Equipamento.objects.all()
-    paginator = Paginator(equipamentos, 12)
-
-    page_number = request.GET.get('page')
-    page_obj = paginator.get_page(page_number)
-    return render(request, "dados/equipamentos.html", {"page_obj" : page_obj})
-
+   
+    criar_paginacao(request, equipamentos)
+    return render(request, "dados/equipamentos.html", {"criar_paginacao" : criar_paginacao(request, equipamentos)})
 
 
 @login_required
 def condominios(request):
     condominios = Condominio.objects.all()
-    return render(request, "dados/condominios.html", {"condominios" : condominios})
+    
+    criar_paginacao(request, condominios)
+    return render(request, "dados/condominios.html", {"criar_paginacao" : criar_paginacao(request, condominios)})
+
+
+# Função generica para criar paginação
+def criar_paginacao(request, objeto):
+    paginator = Paginator(objeto, 12)
+    page_number = request.GET.get('page')
+    page_obj = paginator.get_page(page_number)
+
+    return page_obj
+
 
 
 # @login_required

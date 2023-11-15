@@ -8,8 +8,8 @@
      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.1/font/bootstrap-icons.min.css" integrity="sha512-oAvZuuYVzkcTc2dH5z1ZJup5OmSQ000qlfRvuoTTiyTBjwX1faoyearj8KdMq0LgsBTHMrRuMek7s+CxF8yE+w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
       <!-- CSS   -->
-     <link rel="stylesheet" type="text/css" href="{% static 'assets/css/tabela.css' %}">
-     <link rel="stylesheet" type="text/css" href="{% static 'assets/css/paginator.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'assets/css/tabela.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'assets/css/paginator.css' %}">
 
     <title>Dados Equipamentos</title>
 </head>
@@ -45,7 +45,7 @@
               </tr>
             </thead>
             <tbody>
-                {% for equipamento in page_obj %}
+                {% for equipamento in criar_paginacao %}
               <tr>
                 <td>{{ equipamento.pk }}</td>
                 <td>{{ equipamento.nome }}</td>
@@ -58,12 +58,12 @@
 
           <div class="pagination">
             <span class="step-links">
-                {% if page_obj.has_previous %}
+                {% if criar_paginacao.has_previous %}
                     <a href="?page=1">&laquo; Primeiro</a>
                 {% endif %}
         
-                {% for i in page_obj.paginator.page_range %}
-                    {% if page_obj.number == i %}
+                {% for i in criar_paginacao.paginator.page_range %}
+                    {% if criar_paginacao.number == i %}
                         <span class="current">
                             <strong>{{ i }}</strong>
                         </span>
@@ -72,12 +72,12 @@
                     {% endif %}
                 {% endfor %}
         
-                {% if page_obj.has_next %}
-                    <a href="?page={{ page_obj.paginator.num_pages }}">Último &raquo;</a>
+                {% if criar_paginacao.has_next %}
+                    <a href="?page={{ criar_paginacao.paginator.num_pages }}">Último &raquo;</a>
                 {% endif %}
             </span>
         </div>
-       
+    </section>   
         
         
         
