@@ -3,12 +3,17 @@ from django.http import HttpResponse
 from django.shortcuts import render
 from .models import Equipamento, Condominio
 from django.contrib.auth.decorators import login_required
+from django.core.paginator import Paginator
 
 
 @login_required
 def equipamentos(request):
     equipamentos = Equipamento.objects.all()
-    return render(request, "dados/equipamentos.html", {"equipamentos" : equipamentos})
+    paginator = Paginator(equipamentos, 12)
+
+    page_number = request.GET.get('page')
+    page_obj = paginator.get_page(page_number)
+    return render(request, "dados/equipamentos.html", {"page_obj" : page_obj})
 
 
 

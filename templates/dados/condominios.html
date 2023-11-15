@@ -33,10 +33,10 @@
             </div>
         </div>
         
-        <table class="table caption-top">
-            
+        <table class="table caption-top">            
             <thead class="table-primary">
               <tr>
+                <th class="">#</th>
                 <th scope="col">Identificação</th>
                 <th scope="col">Condominio</th>                
               </tr>
@@ -44,6 +44,7 @@
             <tbody>
               {% for condominio in condominios %}
               <tr>
+                <td>{{ condominio.pk }}</td>
                 <td>{{ condominio.numero_identificacao }}</td>
                 <td>{{ condominio.nome }}</td>
               </tr>              
@@ -51,6 +52,13 @@
             </tbody>
         </table>
     </section>
+
+    <div class="pagination">
+        <span class="step-links">
+            {% if page_obj.has_previous  %}
+        </span>
+
+    </div>
    
 </body>
 </html>

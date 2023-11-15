@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.1/font/bootstrap-icons.min.css" integrity="sha512-oAvZuuYVzkcTc2dH5z1ZJup5OmSQ000qlfRvuoTTiyTBjwX1faoyearj8KdMq0LgsBTHMrRuMek7s+CxF8yE+w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
       <!-- CSS   -->
      <link rel="stylesheet" type="text/css" href="{% static 'assets/css/tabela.css' %}">
+     <link rel="stylesheet" type="text/css" href="{% static 'assets/css/paginator.css' %}">
 
     <title>Dados Equipamentos</title>
 </head>
@@ -37,14 +38,16 @@
             
             <thead class="table-primary">
               <tr>
+                <th scope="col">#</th>
                 <th scope="col">Nome</th>
                 <th scope="col">N Série</th>                
                 <th scope="col">Condomínio</th>
               </tr>
             </thead>
             <tbody>
-                {% for equipamento in equipamentos %}
+                {% for equipamento in page_obj %}
               <tr>
+                <td>{{ equipamento.pk }}</td>
                 <td>{{ equipamento.nome }}</td>
                 <td>{{ equipamento.numero_serie }}</td>                
                 <td>{{ equipamento.condominio }}</td>
@@ -52,7 +55,36 @@
               {% endfor %}
             </tbody>
           </table>
-    </section>
+
+          <div class="pagination">
+            <span class="step-links">
+                {% if page_obj.has_previous %}
+                    <a href="?page=1">&laquo; Primeiro</a>
+                {% endif %}
+        
+                {% for i in page_obj.paginator.page_range %}
+                    {% if page_obj.number == i %}
+                        <span class="current">
+                            <strong>{{ i }}</strong>
+                        </span>
+                    {% else %}
+                        <a href="?page={{ i }}">{{ i }}</a>
+                    {% endif %}
+                {% endfor %}
+        
+                {% if page_obj.has_next %}
+                    <a href="?page={{ page_obj.paginator.num_pages }}">Último &raquo;</a>
+                {% endif %}
+            </span>
+        </div>
+       
+        
+        
+        
+        
+        
+
+   
    
 </body>
 </html>
