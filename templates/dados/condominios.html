@@ -6,7 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.1/font/bootstrap-icons.min.css" integrity="sha512-oAvZuuYVzkcTc2dH5z1ZJup5OmSQ000qlfRvuoTTiyTBjwX1faoyearj8KdMq0LgsBTHMrRuMek7s+CxF8yE+w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.1/font/bootstrap-icons.min.css" 
+     integrity="sha512-oAvZuuYVzkcTc2dH5z1ZJup5OmSQ000qlfRvuoTTiyTBjwX1faoyearj8KdMq0LgsBTHMrRuMek7s+CxF8yE+w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
       <!-- CSS   -->
     <link rel="stylesheet" type="text/css" href="{% static 'assets/css/tabela.css' %}">
 	<link rel="stylesheet" type="text/css" href="{% static 'assets/css/paginator.css' %}">
@@ -15,11 +16,23 @@
 </head>
 <body>
     
+    <nav class="navbar" style="background-color: #417690;">
+        <div class="container">
+            <a href="{% url 'condominios' %}" class="navbar-brand" style="font-size: 25px; color: white;">Handaltech <span style="font-size: 12px;">ver-1.0</span></a>
+            
+            <form class="d-flex" role="search">
+                <input class="form-control me-2" name="nome" type="search" placeholder="Buscar condominio" aria-label="Search">
+                <button class="btn btn-outline-info" type="submit">Procurar</button>
+            </form>
+        </div>
+    </nav>
+    
     <section class="container">
         <div>
             <h3 class="text-center mb-5">Condominios</h3>
           
-            <a href="{% url 'admin:index' %}" class="home">
+            <!-- <a href="{% url 'admin:index' %}" class="home"> -->
+            <a href="{% url 'condominios' %}" class="home">
               <div class="sign"><i class="bi bi-box-arrow-left"></i></div>
               <div class="text"> Home</div>
             </a>

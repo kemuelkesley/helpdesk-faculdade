@@ -4,6 +4,9 @@ from django.shortcuts import render
 from .models import Equipamento, Condominio
 from django.contrib.auth.decorators import login_required
 from django.core.paginator import Paginator
+from django.db.models import Q
+
+
 
 
 @login_required
@@ -17,45 +20,38 @@ def equipamentos(request):
 @login_required
 def condominios(request):
     condominios = Condominio.objects.all()
+        
+    paginas = criar_paginacao(request, condominios)
+
+    buscar_dados(request.GET.get('nome'))
+    if request.GET.get('nome'):
+        paginas = criar_paginacao(request, buscar_dados(request.GET.get('nome')))
+
+        
+    context = {
+        "criar_paginacao" : paginas
+    }
     
-    criar_paginacao(request, condominios)
-    return render(request, "dados/condominios.html", {"criar_paginacao" : criar_paginacao(request, condominios)})
+    return render(request, "dados/condominios.html", context)
 
 
-# Função generica para criar paginação
+# funcao para filtrar dados
+def buscar_dados(nome):
+    if nome:
+        return Condominio.objects.filter(
+            Q(numero_identificacao__icontains=nome) | Q(nome__icontains=nome))
+    
+    else:        
+        return Condominio.objects.all()
+    
+
+# funcao generica para criar paginacao
 def criar_paginacao(request, objeto):
     paginator = Paginator(objeto, 12)
     page_number = request.GET.get('page')
     page_obj = paginator.get_page(page_number)
 
     return page_obj
-
-
-
-# @login_required
-# def exportar_csv(request):
-#     response = HttpResponse(content_type='text/csv')
-#     response['Content-Disposition'] = 'attachment; filename="equipamentos.csv"'
-
-#     writer = csv.writer(response)
-#     writer.writerow([
-#         'Nome',
-#         'N Serie',
-#         'Descricao',
-#         'Condominio'
-#     ])
-
-#     equipamentos = Equipamento.objects.all()
-
-#     for equipamento in equipamentos:
-#         writer.writerow([
-#             equipamento.nome,
-#             equipamento.numero_serie,
-#             equipamento.descricao,
-#             equipamento.condominio
-#         ])
-
-#     return response
 
 
 
