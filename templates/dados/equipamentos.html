@@ -14,12 +14,24 @@
     <title>Dados Equipamentos</title>
 </head>
 <body>
+
+    
+    <nav class="navbar" style="background-color: #417690;">
+      <div class="container">
+          <a href="{% url 'equipamentos' %}" class="navbar-brand" style="font-size: 25px; color: white;">Handaltech <span style="font-size: 12px;">ver-1.0</span></a>
+          
+          <form class="d-flex" role="search">
+              <input class="form-control me-2" name="nome" type="search" placeholder="Buscar equipamento" aria-label="Search">
+              <button class="btn btn-outline-info" type="submit">Procurar</button>
+          </form>
+      </div>
+   </nav>
     
     <section class="container">
         <div>
             <h3 class="text-center mb-5">Equipamentos</h3>
           
-          <a href="{% url 'admin:index' %}" class="home">
+          <a href="{% url 'equipamentos' %}" class="home">
             <div class="sign"><i class="bi bi-box-arrow-left"></i></div>
             <div class="text"> Home</div>
           </a>
