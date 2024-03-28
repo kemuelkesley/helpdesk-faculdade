@@ -9,25 +9,6 @@ from .metodos_genericos import exportar_csv
 
 
 
-# @login_required
-# def equipamentos(request):
-#     equipamentos = Equipamento.objects.all()
-
-#     paginas = criar_paginacao(request, equipamentos)
-
-#     buscar_dados_equipamentos(request.GET.get('nome'))
-#     if request.GET.get('nome'):
-#         paginas = criar_paginacao(request, buscar_dados_equipamentos(request.GET.get('nome')))
-
-#     context = {
-#         "criar_paginacao" : paginas
-#     }    
-   
-#     criar_paginacao(request, equipamentos)
-#     return render(request, "dados/equipamentos.html", {"criar_paginacao" : criar_paginacao(request, equipamentos)})
-#     return render(request, "dados/equipamentos.html", context)
-
-
 @login_required
 def equipamentos(request):
     equipamentos = Equipamento.objects.all()
