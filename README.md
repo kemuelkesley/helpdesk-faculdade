@@ -1,16 +1,28 @@
-# Meu Projeto Django
 
-Este é um projeto Django simples para [descreva brevemente o propósito do projeto].
+# Helpdesk
 
-## Tecnologias Utilizadas
+## Descrição
 
-- Python [versão]: [[link para a página oficial do Python]](https://www.python.org/downloads/)
-- Django [versão]: [link para a página oficial do Django]
-- [Outras tecnologias usadas, se aplicável]
+O projeto **Helpdesk** é uma aplicação para gestão de chamados técnicos, permitindo o registro de abertura e fechamento de tickets. A plataforma foi desenvolvida para facilitar o acompanhamento de chamados, armazenando informações sobre quem abriu e fechou os chamados, além de monitorar os equipamentos instalados em condomínios. O principal objetivo é capturar dados essenciais para alimentar um sistema de Big Data, ajudando na análise de dados e no aprimoramento dos serviços.
 
-## Instalação
+## Objetivo
 
-Siga estas etapas para configurar e executar o projeto localmente:
+O objetivo do **Helpdesk** é oferecer uma solução prática para o gerenciamento de chamados técnicos, automatizando o registro de aberturas e fechamentos, com rastreamento detalhado das operações realizadas. Além disso, a aplicação visa coletar dados de uso diário para alimentar um sistema de Big Data, auxiliando na geração de insights para a empresa.
+
+## Histórico
+
+Este projeto foi criado para atender a necessidade de uma empresa que buscava uma maneira eficiente de gerenciar seus chamados de suporte técnico de forma centralizada. A ideia surgiu da demanda por uma aplicação que não apenas registrasse os chamados, mas também capturasse dados importantes para futuros aprimoramentos e análises, contribuindo para a construção de um banco de dados robusto para Big Data.
+
+## Tecnologias Usadas
+
+Este projeto foi construído utilizando as seguintes tecnologias:
+
+- **[Python 11](https://www.python.org/)**: Linguagem de programação usada para o backend.
+- **[Django 5.0](https://www.djangoproject.com/)**: Framework web em Python que facilita o desenvolvimento rápido e seguro de aplicações web.
+- **[HTML5](https://developer.mozilla.org/en-US/docs/Web/HTML/HTML5)**: Estrutura da interface do usuário.
+- **[CSS3](https://developer.mozilla.org/en-US/docs/Web/CSS)**: Estilização da interface do usuário.
+- **[Bootstrap 5.0](https://getbootstrap.com/)**: Framework CSS para design responsivo e componentes de UI.
+- **[SQL Server](https://www.microsoft.com/sql-server)**: Banco de dados utilizado para armazenamento de dados no projeto.
 
 1. Baixar o python: 
 
@@ -52,6 +64,8 @@ Siga estas etapas para configurar e executar o projeto localmente:
       
      ```   
      virtualenv env
+     ou
+     python -m venv venv
      
      ```
 
