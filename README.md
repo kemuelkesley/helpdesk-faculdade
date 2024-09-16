@@ -1,127 +1,127 @@
 
-# Helpdesk
+#
+# Project Title: Helpdesk
 
-## Descrição
+## Project Name
 
-O projeto **Helpdesk** é uma aplicação para gestão de chamados técnicos, permitindo o registro de abertura e fechamento de tickets. A plataforma foi desenvolvida para facilitar o acompanhamento de chamados, armazenando informações sobre quem abriu e fechou os chamados, além de monitorar os equipamentos instalados em condomínios. O principal objetivo é capturar dados essenciais para alimentar um sistema de Big Data, ajudando na análise de dados e no aprimoramento dos serviços.
+**Helpdesk** is a ticket management application designed to streamline technical support operations by allowing users to open and close tickets, track equipment installations in condominiums, and record who performed these operations. The application also captures essential data for feeding into a Big Data system to help analyze and improve services.
 
-## Objetivo
+## Description
 
-O objetivo do **Helpdesk** é oferecer uma solução prática para o gerenciamento de chamados técnicos, automatizando o registro de aberturas e fechamentos, com rastreamento detalhado das operações realizadas. Além disso, a aplicação visa coletar dados de uso diário para alimentar um sistema de Big Data, auxiliando na geração de insights para a empresa.
+The **Helpdesk** project is an application for managing technical support tickets, allowing users to log the opening and closing of tickets. The platform was developed to simplify the tracking of tickets, storing information on who opened and closed them, and monitoring the equipment installed in condominiums. The primary goal is to capture essential data to feed into a Big Data system, helping with data analysis and service improvement.
 
-## Histórico
+## Objective
 
-Este projeto foi criado para atender a necessidade de uma empresa que buscava uma maneira eficiente de gerenciar seus chamados de suporte técnico de forma centralizada. A ideia surgiu da demanda por uma aplicação que não apenas registrasse os chamados, mas também capturasse dados importantes para futuros aprimoramentos e análises, contribuindo para a construção de um banco de dados robusto para Big Data.
+The **Helpdesk** aims to provide a practical solution for managing technical support tickets, automating the logging of ticket openings and closings, with detailed tracking of all operations. Additionally, the application seeks to collect daily usage data to feed into a Big Data system, helping the company generate insights and improve its services.
 
-## Tecnologias Usadas
+## History
 
-Este projeto foi construído utilizando as seguintes tecnologias:
+This project was created to meet the needs of a company looking for an efficient way to centrally manage its technical support tickets. The idea emerged from the demand for an application that not only logged tickets but also captured important data for future improvements and analysis, contributing to building a robust database for Big Data.
 
-- **[Python 11](https://www.python.org/)**: Linguagem de programação usada para o backend.
-- **[Django 5.0](https://www.djangoproject.com/)**: Framework web em Python que facilita o desenvolvimento rápido e seguro de aplicações web.
-- **[HTML5](https://developer.mozilla.org/en-US/docs/Web/HTML/HTML5)**: Estrutura da interface do usuário.
-- **[CSS3](https://developer.mozilla.org/en-US/docs/Web/CSS)**: Estilização da interface do usuário.
-- **[Bootstrap 5.0](https://getbootstrap.com/)**: Framework CSS para design responsivo e componentes de UI.
-- **[SQL Server](https://www.microsoft.com/sql-server)**: Banco de dados utilizado para armazenamento de dados no projeto.
 
-1. Baixar o python: 
+## Technologies Used
+
+This project was built using the following technologies:
+
+- **[Python 11](https://www.python.org/)**: Programming language used for the backend.
+- **[Django 5.0](https://www.djangoproject.com/)**: Python web framework that facilitates rapid and secure web application development.
+- **[HTML5](https://developer.mozilla.org/en-US/docs/Web/HTML/HTML5)**: Structure of the user interface.
+- **[CSS3](https://developer.mozilla.org/en-US/docs/Web/CSS)**: Styling of the user interface.
+- **[Bootstrap 5.0](https://getbootstrap.com/)**: CSS framework for responsive design and UI components.
+- **[SQL Server](https://www.microsoft.com/sql-server)**: Database used for data storage in the project.
+
+
+## Screens
+
+| Project Running                                                                                    | 
+|----------------------------------------------------------------------------------------------------
+|![helpdesk](https://github.com/user-attachments/assets/2e7a9dd1-6eda-4570-9d5b-d5b2a703bced)        |
+ 
+
+&nbsp;
+
+
+
+### 1. Download Python: 
 
    ```
-   
    https://www.python.org/downloads/
-   
    ```
 
-
-2. Clone o repositório ou baixe o arquivo zipado: 
+### 2. Clone the repository or download the zip file:
 
    ```
-   
    git clone https://github.com/kemuelkesley/helpdesk-faculdade.git
-   
    ```
 
-   - Depois de baixado ou clonado descompactar a pasta em um local de preferencia sua.
+   - Once downloaded or cloned, unzip the folder to a location of your choice.
     
 
-   
-3. Abra o Terminal e entre na pasta do projeto
+### 3. Open the Terminal and navigate to the project folder:
 
    ```   
    cd helpdesk-faculdade
-   
    ```
 
-4. No terminal dentro da pasta do projeto instale a VIRTUALENV.
+### 4. In the terminal, install VIRTUALENV:
 
    ```   
    pip install virtualenv
-   
    ```
 
- 5. Criar um ambiente virtual
-    - Ainda com o terminal aberto dentro da pasta do projeto execute o comando:
+### 5. Create a virtual environment:
+    - With the terminal open in the project folder, run the command:
       
      ```   
      virtualenv env
-     ou
+     or
      python -m venv venv
-     
      ```
 
- 6. Ativar ambiente virtual
-   - Depois de ter criado o ambiene virtual *ENV*, ative usando o comando: 
+### 6. Activate the virtual environment:
+   - After creating the *ENV* virtual environment, activate it using the command: 
 
      ```   
-     env\Script\Activate
-     
+     env\Scripts\Activate
      ```
 
-     - Exemplo do ambiente virtual ativado
+     - Example of activated virtual environment:
     
        ![image](https://github.com/kemuelkesley/helpdesk-faculdade/assets/79339726/d48738e4-7744-4c64-9730-a151faa5c66a)
 
-
- 7. Baixar as dependencias do projeto
-     - Dentro da pasta com o terminal aberto execute o comando:
+### 7. Install the project dependencies:
+     - In the project folder with the terminal open, run the command:
   
      ```   
      pip install -r requirements.txt
-     
      ```
 
+### 8. Run the database migrations:
 
- 8. Execute as migrações do banco de dados:
-      
      ```   
      python manage.py migrate
-     
      ```
 
- 9. Criar conta de administrador
-
-     - Ainda no terminal execute o comando para criar a conta para acessar o sistema.
-     - Após executar esse comando ele vai pedir para criar:
+### 9. Create an administrator account:
+     - In the terminal, run the command to create the account to access the system.
+     - After executing this command, it will prompt you to create:
    
-     - Nome de usuário
-     - E-mail
-     - Senha
+     - Username
+     - Email
+     - Password
       
      ```   
      python manage.py createsuperuser
-     
      ```
-     
 
-10. Iniciar o servidor de desenvolvimento
+### 10. Start the development server:
 
-     - Depois de tudo configurado e baixado.
-     - Execute o comando:    
+     - Once everything is configured and installed, run the command:    
       
      ```   
      python manage.py runserver
-     
      ```
+
 
 11. Abra seu navegador e acesse *http://localhost:8000/* para ver o projeto em execução
 12. Se tudo deu certo vai abrir a pagina de login é só colocar a *conta de administrador* que você criou e *senha*
