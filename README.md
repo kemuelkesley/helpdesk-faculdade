@@ -92,17 +92,17 @@ https://www.youtube.com/watch?v=MQ-h_BrEICQ
        ![image](https://github.com/kemuelkesley/helpdesk-faculdade/assets/79339726/d48738e4-7744-4c64-9730-a151faa5c66a)
 
 ### 7. Install the project dependencies:
-   - In the project folder with the terminal open, run the command:
+ - In the project folder with the terminal open, run the command:
   
-     ```   
-     pip install -r requirements.txt
-     ```
+    ```   
+    pip install -r requirements.txt
+    ```
 
 ### 8. Run the database migrations:
 
-     ```   
-     python manage.py migrate
-     ```
+   ````
+   python manage.py migrate
+   ````
 
 ### 9. Create an administrator account:
    - In the terminal, run the command to create the account to access the system.
