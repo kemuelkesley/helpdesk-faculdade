@@ -40,7 +40,9 @@ This project was built using the following technologies:
 
 &nbsp;
 
+# Link project
 
+https://www.youtube.com/watch?v=MQ-h_BrEICQ
 
 ### 1. Download Python: 
 
@@ -70,8 +72,8 @@ This project was built using the following technologies:
    ```
 
 ### 5. Create a virtual environment:
-    - With the terminal open in the project folder, run the command:
-      
+- With the terminal open in the project folder, run the command:
+         
      ```   
      virtualenv env
      or
@@ -90,7 +92,7 @@ This project was built using the following technologies:
        ![image](https://github.com/kemuelkesley/helpdesk-faculdade/assets/79339726/d48738e4-7744-4c64-9730-a151faa5c66a)
 
 ### 7. Install the project dependencies:
-     - In the project folder with the terminal open, run the command:
+   - In the project folder with the terminal open, run the command:
   
      ```   
      pip install -r requirements.txt
@@ -103,8 +105,8 @@ This project was built using the following technologies:
      ```
 
 ### 9. Create an administrator account:
-     - In the terminal, run the command to create the account to access the system.
-     - After executing this command, it will prompt you to create:
+   - In the terminal, run the command to create the account to access the system.
+   - After executing this command, it will prompt you to create:
    
      - Username
      - Email
@@ -116,16 +118,18 @@ This project was built using the following technologies:
 
 ### 10. Start the development server:
 
-     - Once everything is configured and installed, run the command:    
+   - Once everything is configured and installed, run the command:    
       
      ```   
      python manage.py runserver
      ```
 
 
-11. Abra seu navegador e acesse *http://localhost:8000/* para ver o projeto em execução
-12. Se tudo deu certo vai abrir a pagina de login é só colocar a *conta de administrador* que você criou e *senha*
+11. Open your browser and go to http://localhost:8000/ to see the project running.
 
-    ![image](https://github.com/kemuelkesley/helpdesk-faculdade/assets/79339726/a4cffabe-874f-4a2a-8b9e-4dd030f614b4)
+12. If everything worked correctly, the login page will open. Just enter the admin account you created and the password.
+
+
+![image](https://github.com/kemuelkesley/helpdesk-faculdade/assets/79339726/a4cffabe-874f-4a2a-8b9e-4dd030f614b4)
 
    
