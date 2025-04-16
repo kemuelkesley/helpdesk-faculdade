@@ -19,11 +19,13 @@ from django.urls import path, include
 from django.shortcuts import redirect
 
 
-# Redireciona a raiz "/" para "/login/"
-path('', lambda request: redirect('login')),
+
 
 
 urlpatterns = [
+    # Redireciona a raiz "/" para "/login/"
+    path('', lambda request: redirect('/login/')),
+
     path('admin/', admin.site.urls),
     path('', include("usuarios.urls")),
     path('', include("cadastro.urls")),
