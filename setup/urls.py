@@ -16,6 +16,11 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from django.shortcuts import redirect
+
+
+# Redireciona a raiz "/" para "/login/"
+path('', lambda request: redirect('login')),
 
 
 urlpatterns = [
