@@ -8,7 +8,17 @@ from django.utils import timezone
 
 
 #Configura o locale para português do Brasil
-locale.setlocale(locale.LC_TIME, 'pt_BR.utf8')
+#locale.setlocale(locale.LC_TIME, 'pt_BR.utf8')
+
+import locale
+
+try:
+    locale.setlocale(locale.LC_TIME, 'pt_BR.utf8')
+except locale.Error:
+    # fallback para sistema que não tem pt_BR instalado
+    locale.setlocale(locale.LC_TIME, 'C')
+
+
 
 class Ticket(models.Model):
    
