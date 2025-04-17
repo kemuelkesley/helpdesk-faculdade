@@ -145,15 +145,28 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
-STATIC_URL = 'static/'
+# STATIC_URL = 'static/'
 
-# mostra onde todas as pastas de arquivos estáticos estão localizadas
+
+# STATICFILES_DIRS = [
+#     os.path.join(BASE_DIR, 'setup/static')
+# ]
+
+
+# STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+
+STATIC_URL = '/static/'
+
+# Diretório onde o Django procura por arquivos estáticos durante o desenvolvimento
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'setup/static')
+    os.path.join(BASE_DIR, 'setup/static'),
 ]
 
-# caminho onde o django faça a manipulação dos arquivos estáticos
-STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+# Diretório onde os arquivos estáticos serão coletados durante o deploy (necessário no render)
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
+
+
 
 
 # Default primary key field type
