@@ -33,7 +33,7 @@ DEBUG = True
 
 # Lembrar de o host correto 'helpdesk-libk.onrender.com'
 # Se For testar local tirar o 'helpdesk-libk.onrender.com' e deixar apenas vazio []
-ALLOWED_HOSTS = ['helpdesk-libk.onrender.com']
+ALLOWED_HOSTS = []
 
 
 # Application definition
@@ -162,7 +162,7 @@ STATIC_URL = '/static/'
 
 # Diretório onde o Django procura por arquivos estáticos durante o desenvolvimento
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'setup/static'),
+    os.path.join(BASE_DIR, 'static'),
 ]
 
 # Diretório onde os arquivos estáticos serão coletados durante o deploy (necessário no render)

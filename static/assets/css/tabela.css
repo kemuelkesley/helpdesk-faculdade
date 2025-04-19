@@ -160,29 +160,29 @@ a {
     font-size: 1.3em;
     font-weight: 600;
     transition-duration: .3s;
-  }
+}
 
   .home:hover {
     width: 125px;
     border-radius: 40px;
     transition-duration: .3s;
-  }
+}
 
   .home:hover .sign {
     width: 5%;
     transition-duration: .3s;
     padding-left: 20px;
-  }
+}
 
-  /* hover effect button's text */
+/* hover effect button's text */
 .home:hover .text {
     opacity: 1;
     width: 70%;
     transition-duration: .3s;
     padding-right: 8px;
-  }
+}
 
   /* button click effect*/
 .home:active {
     transform: translate(2px ,2px);
-  }
+}
