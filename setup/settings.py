@@ -31,6 +31,8 @@ SECRET_KEY = 'django-insecure-l0bg5x-wcl!11=*(j40pcz4#)-s7s%mj(!f5*1fog_g2(72-4s
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
+# Lembrar de o host correto 'helpdesk-libk.onrender.com'
+# Se For testar local tirar o 'helpdesk-libk.onrender.com' e deixar apenas vazio []
 ALLOWED_HOSTS = ['helpdesk-libk.onrender.com']
 
 
