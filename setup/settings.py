@@ -172,6 +172,8 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
+WHITENOISE_AUTOREFRESH = True
+WHITENOISE_USE_FINDERS = False  # Isso desabilita a busca por arquivos ausentes, como os .map
 
 
 # Default primary key field type
