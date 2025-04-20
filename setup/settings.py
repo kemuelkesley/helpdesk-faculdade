@@ -163,8 +163,8 @@ STATIC_URL = '/static/'
 
 # Diretório onde o Django procura por arquivos estáticos durante o desenvolvimento
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'static'),
-    
+    os.path.join(BASE_DIR, 'setup/static'),
+
 ]
 
 # Diretório onde os arquivos estáticos serão coletados durante o deploy (necessário no render)
