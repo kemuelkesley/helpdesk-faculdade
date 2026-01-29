@@ -33,7 +33,7 @@ DEBUG = False
 
 # Lembrar de o host correto 'helpdesk-libk.onrender.com'
 # Se For testar local tirar o 'helpdesk-libk.onrender.com' e deixar apenas vazio []
-ALLOWED_HOSTS = ['helpdesk-libk.onrender.com']
+ALLOWED_HOSTS = ['https://helpdesk-faculdade-test.onrender.com']
 
 
 # Application definition
